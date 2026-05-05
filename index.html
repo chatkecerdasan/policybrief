@@ -3,1698 +3,1428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panduan Policy Brief untuk Dosen</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Panduan Karya Setara IKD Dosen</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0d1b2a;
-    --navy-mid: #1b2f45;
-    --navy-light: #243b55;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --gold-pale: #f5e6c0;
-    --cream: #faf6ef;
-    --white: #ffffff;
-    --text-dark: #1a1a2e;
-    --text-mid: #3d4a5c;
-    --text-light: #6b7a8d;
-    --accent-green: #2e7d52;
-    --accent-red: #b5343a;
-    --accent-blue: #1a5276;
-    --border: rgba(201,168,76,0.2);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    overflow-x: hidden;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--navy);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem;
-    text-align: center;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(26,82,118,0.3) 0%, transparent 60%);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.3);
-    padding: 0.4rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 2rem;
-    position: relative;
-    animation: fadeUp 0.8s ease both;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1.05;
-    position: relative;
-    animation: fadeUp 0.8s 0.15s ease both;
-  }
-
-  .hero h1 span {
-    color: var(--gold);
-    display: block;
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.6);
-    max-width: 560px;
-    margin: 1.5rem auto 2.5rem;
-    line-height: 1.7;
-    font-weight: 300;
-    position: relative;
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 2.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    animation: fadeUp 0.8s 0.45s ease both;
-    margin-bottom: 3rem;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    animation: fadeUp 0.8s 0.6s ease both;
-  }
-
-  .btn-primary {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 0.85rem 2rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    padding: 0.85rem 2rem;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.25);
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255,255,255,0.3);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: bounce 2s infinite;
-  }
-
-  /* ── NAV ── */
-  .sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(13,27,42,0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    padding: 0 2rem;
-  }
-
-  .nav-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .nav-inner::-webkit-scrollbar { display: none; }
-
-  .nav-link {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 1rem 1.2rem;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
-
-  .nav-link:hover, .nav-link.active {
-    color: var(--gold);
-    border-bottom-color: var(--gold);
-  }
-
-  /* ── SECTIONS ── */
-  .section {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  .section-desc {
-    color: var(--text-mid);
-    font-size: 1.05rem;
-    line-height: 1.75;
-    max-width: 680px;
-  }
-
-  .divider {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-    margin-bottom: 1.5rem;
-    border-radius: 2px;
-  }
-
-  /* ── WHAT IS ── */
-  .what-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .what-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.75rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .what-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(13,27,42,0.1);
-  }
-
-  .what-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  }
-
-  .what-card-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--gold-pale);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
-  .what-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-  }
-
-  .what-card p {
-    font-size: 0.9rem;
-    color: var(--text-mid);
-    line-height: 1.65;
-  }
-
-  /* ── COMPARISON TABLE ── */
-  .compare-section {
-    background: var(--navy);
-    padding: 5rem 2rem;
-  }
-
-  .compare-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 2.5rem;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .compare-table th {
-    background: rgba(201,168,76,0.15);
-    color: var(--gold);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 1.25rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
-
-  .compare-table td {
-    padding: 1rem 1.25rem;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    vertical-align: top;
-    line-height: 1.6;
-  }
-
-  .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:hover td { background: rgba(255,255,255,0.03); }
-
-  .compare-table td:first-child {
-    color: var(--gold-light);
-    font-weight: 600;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    width: 160px;
-  }
-
-  /* ── STRUCTURE ── */
-  .structure-steps {
-    margin-top: 3rem;
-    position: relative;
-  }
-
-  .structure-steps::before {
-    content: '';
-    position: absolute;
-    left: 22px;
-    top: 0; bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-  }
-
-  .step {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    align-items: flex-start;
-  }
-
-  .step-num {
-    width: 46px;
-    height: 46px;
-    background: var(--navy);
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--gold);
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-body {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    flex: 1;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .step-body:hover {
-    transform: translateX(4px);
-    box-shadow: 0 8px 30px rgba(13,27,42,0.08);
-  }
-
-  .step-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--navy);
-    margin-bottom: 0.4rem;
-  }
-
-  .step-desc {
-    font-size: 0.88rem;
-    color: var(--text-mid);
-    line-height: 1.65;
-  }
-
-  .step-meta {
-    display: inline-block;
-    margin-top: 0.6rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--gold);
-    background: var(--gold-pale);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-  }
-
-  /* ── IKD TABS ── */
-  .tab-container {
-    margin-top: 3rem;
-  }
-
-  .tab-nav {
-    display: flex;
-    gap: 0;
-    border-bottom: 2px solid rgba(13,27,42,0.1);
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .tab-nav::-webkit-scrollbar { display: none; }
-
-  .tab-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-light);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .tab-btn.active {
-    color: var(--navy);
-    border-bottom-color: var(--gold);
-  }
-
-  .tab-btn:hover { color: var(--navy); }
-
-  .tab-pane { display: none; padding-top: 2rem; }
-  .tab-pane.active { display: block; }
-
-  .ikd-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .ikd-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: transform 0.2s;
-  }
-
-  .ikd-card:hover { transform: translateY(-2px); }
-
-  .ikd-badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.7rem;
-    border-radius: 100px;
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-  }
-
-  .badge-aa { background: #e8f4f8; color: #1a5276; }
-  .badge-l { background: #e8f8f0; color: #1e8449; }
-  .badge-lk { background: #fff3e0; color: #e65100; }
-  .badge-p { background: #fce4ec; color: #880e4f; }
-
-  .ikd-card h4 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-
-  .ikd-card p {
-    font-size: 0.82rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-
-  .ikd-or {
-    text-align: center;
-    font-size: 0.7rem;
-    color: var(--text-light);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.5rem 0;
-    grid-column: 1 / -1;
-  }
-
-  /* ── LEMBAGA ── */
-  .lembaga-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .lembaga-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.75rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .lembaga-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(13,27,42,0.12);
-  }
-
-  .lembaga-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--gold-pale);
-    position: absolute;
-    top: 0.5rem; right: 1rem;
-    line-height: 1;
-  }
-
-  .lembaga-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  .lembaga-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.75rem;
-  }
-
-  .lembaga-examples {
-    list-style: none;
-    margin-bottom: 1rem;
-  }
-
-  .lembaga-examples li {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    padding: 0.3rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .lembaga-examples li::before {
-    content: '→';
-    color: var(--gold);
-    font-size: 0.75rem;
-    flex-shrink: 0;
-  }
-
-  .lembaga-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.8rem;
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-weight: 500;
-    margin-top: 0.25rem;
-  }
-
-  .lembaga-link:hover { text-decoration: underline; }
-
-  /* ── EXAMPLE ── */
-  .example-section {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-    padding: 5rem 2rem;
-  }
-
-  .example-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .mock-brief {
-    background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    margin-top: 2.5rem;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.4);
-  }
-
-  .mock-header {
-    background: var(--navy);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .mock-logo-area {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .mock-logo-box {
-    width: 36px; height: 36px;
-    background: var(--gold);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 0.8rem;
-    color: var(--navy);
-  }
-
-  .mock-logo-text {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .mock-logo-text strong { color: white; display: block; font-size: 0.85rem; }
-
-  .mock-badge {
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    padding: 0.3rem 0.8rem;
-    border-radius: 100px;
-    text-transform: uppercase;
-  }
-
-  .mock-body {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-  }
-
-  .mock-main {
-    padding: 2.5rem;
-    border-right: 1px solid #f0f0f0;
-  }
-
-  .mock-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent-red);
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-  }
-
-  .mock-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.3;
-    margin-bottom: 1.5rem;
-  }
-
-  .mock-exec {
-    background: #f8f9fa;
-    border-left: 3px solid var(--gold);
-    padding: 1rem 1.2rem;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 1.5rem;
-  }
-
-  .mock-exec-label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .mock-exec p {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    line-height: 1.65;
-  }
-
-  .mock-section-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-    margin-top: 1.25rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid #eee;
-  }
-
-  .mock-body-text {
-    font-size: 0.83rem;
-    color: var(--text-mid);
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-  }
-
-  .mock-rec-list {
-    list-style: none;
-  }
-
-  .mock-rec-list li {
-    font-size: 0.83rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #f5f5f5;
-    display: flex;
-    gap: 0.6rem;
-  }
-
-  .mock-rec-list li::before {
-    content: '▶';
-    color: var(--gold);
-    font-size: 0.55rem;
-    margin-top: 0.35rem;
-    flex-shrink: 0;
-  }
-
-  .mock-sidebar {
-    padding: 2rem 1.5rem;
-    background: #fafafa;
-  }
-
-  .sidebar-box {
-    background: var(--white);
-    border: 1px solid #eee;
-    border-radius: 10px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .sidebar-box-title {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--navy);
-    margin-bottom: 0.75rem;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .sidebar-stat {
-    text-align: center;
-    padding: 0.75rem 0;
-  }
-
-  .sidebar-stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent-red);
-    display: block;
-  }
-
-  .sidebar-stat-label {
-    font-size: 0.75rem;
-    color: var(--text-light);
-  }
-
-  .sidebar-highlight {
-    background: var(--navy);
-    border-radius: 10px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .sidebar-highlight p {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-  }
-
-  .sidebar-highlight strong { color: var(--gold); }
-
-  .mock-footer {
-    background: #f8f8f8;
-    border-top: 1px solid #eee;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .mock-footer-text {
-    font-size: 0.75rem;
-    color: var(--text-light);
-  }
-
-  .mock-footer-pub {
-    font-size: 0.75rem;
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* ── CHECKLIST ── */
-  .checklist-section { background: var(--cream); }
-
-  .checklist-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .checklist-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.75rem;
-  }
-
-  .checklist-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .check-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
-    cursor: pointer;
-  }
-
-  .check-item:last-child { border-bottom: none; }
-
-  .check-box {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .check-item.checked .check-box {
-    background: var(--accent-green);
-    border-color: var(--accent-green);
-    color: white;
-  }
-
-  .check-item.checked .check-box::after { content: '✓'; font-size: 0.75rem; font-weight: 700; }
-
-  .check-text {
-    font-size: 0.87rem;
-    color: var(--text-mid);
-    line-height: 1.55;
-    flex: 1;
-  }
-
-  .check-item.checked .check-text {
-    color: var(--text-light);
-    text-decoration: line-through;
-  }
-
-  .progress-bar-wrap {
-    background: #eee;
-    border-radius: 100px;
-    height: 6px;
-    margin-top: 1.5rem;
-    overflow: hidden;
-  }
-
-  .progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-green), #52c41a);
-    border-radius: 100px;
-    width: 0%;
-    transition: width 0.4s ease;
-  }
-
-  .progress-label {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-top: 0.5rem;
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* ── TIPS ── */
-  .tips-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 3rem;
-  }
-
-  .tip-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    border-top: 3px solid var(--gold);
-  }
-
-  .tip-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-
-  .tip-card h4 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-  }
-
-  .tip-card p {
-    font-size: 0.83rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-
-  /* ── FOOTER ── */
-  .site-footer {
-    background: var(--navy);
-    text-align: center;
-    padding: 3rem 2rem;
-  }
-
-  .site-footer p {
-    color: rgba(255,255,255,0.4);
-    font-size: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .site-footer strong { color: var(--gold); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .what-grid, .lembaga-grid, .checklist-grid, .ikd-grid { grid-template-columns: 1fr; }
-    .tips-row { grid-template-columns: 1fr; }
-    .mock-body { grid-template-columns: 1fr; }
-    .mock-sidebar { border-top: 1px solid #eee; }
-    .hero-stats { gap: 1.5rem; }
-    .compare-table { font-size: 0.8rem; }
-    .compare-table th, .compare-table td { padding: 0.75rem 0.9rem; }
-  }
+:root {
+  --ink: #111827;
+  --ink-mid: #374151;
+  --ink-light: #6b7280;
+  --page: #f9f7f4;
+  --white: #ffffff;
+  --teal: #0d7377;
+  --teal-light: #14a085;
+  --teal-pale: #e6f4f1;
+  --gold: #b45309;
+  --gold-pale: #fef3c7;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  /* 5 karya warna */
+  --c1: #1d4ed8; /* working paper - biru */
+  --c1p: #eff6ff;
+  --c2: #065f46; /* white paper - hijau tua */
+  --c2p: #ecfdf5;
+  --c3: #7c3aed; /* policy paper - ungu */
+  --c3p: #f5f3ff;
+  --c4: #b91c1c; /* policy brief - merah */
+  --c4p: #fef2f2;
+  --c5: #92400e; /* karya KI - coklat */
+  --c5p: #fffbeb;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--page);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 10% 50%, rgba(13,115,119,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 90% 20%, rgba(29,78,216,0.15) 0%, transparent 60%);
+}
+
+.hero-label {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  border: 1px solid rgba(20,160,133,0.4);
+  background: rgba(20,160,133,0.08);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--teal-light);
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  font-weight: 300;
+}
+
+/* stat bar — rata tengah */
+.stat-bar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+}
+
+.stat-item {
+  flex: 1;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-n {
+  font-family: 'Lora', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-l {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* source badge */
+.source-strip {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.src-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* ── NAV ── */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(17,24,39,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 1rem;
+}
+
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.9rem 1rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav-link:hover { color: var(--teal-light); }
+.nav-link.active { color: var(--teal-light); border-bottom-color: var(--teal-light); }
+
+/* ── LAYOUT ── */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  color: var(--ink-mid);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 700px;
+}
+
+.rule {
+  width: 48px;
+  height: 3px;
+  background: var(--teal);
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+/* ── ALERT BOX ── */
+.alert {
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+
+.alert-blue { background: #eff6ff; border-left: 4px solid #3b82f6; color: #1e3a5f; }
+.alert-amber { background: #fffbeb; border-left: 4px solid #f59e0b; color: #78350f; }
+.alert-teal { background: var(--teal-pale); border-left: 4px solid var(--teal); color: #064e3b; }
+
+/* ── KARYA CARDS ── */
+.karya-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* last card: if odd, span full */
+.karya-card-full { grid-column: 1 / -1; }
+
+.karya-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.karya-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.karya-header {
+  padding: 1.5rem 1.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.karya-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.karya-header-text { flex: 1; }
+
+.karya-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.karya-name {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.karya-name-id {
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  font-style: italic;
+  margin-top: 0.15rem;
+}
+
+.karya-body {
+  padding: 1.5rem 1.75rem;
+}
+
+.karya-def {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.karya-rows { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.karya-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.5rem;
+  align-items: start;
+}
+
+.karya-row-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--ink-light);
+  padding-top: 0.1rem;
+}
+
+.karya-row-val {
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+.karya-row-val strong { color: var(--ink); font-weight: 600; }
+
+/* IKD per jenjang dalam karya card */
+.ikd-mini {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.ikd-mini-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-light);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.ikd-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.ikd-mini-item {
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+}
+
+.ikd-jenjang {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.ikd-syarat {
+  font-size: 0.7rem;
+  color: var(--ink-mid);
+  line-height: 1.4;
+}
+
+.tag-nasional {
+  display: inline-block;
+  font-size: 0.6rem;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.tag-internasional {
+  display: inline-block;
+  font-size: 0.6rem;
+  background: #fce7f3;
+  color: #9d174d;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* ── FULL-WIDTH KI CARD ── */
+.ki-types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.ki-type {
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+
+.ki-type-name {
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.ki-type-desc {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+/* ── COMPARISON TABLE ── */
+.comp-section { background: var(--ink); padding: 5rem 0; }
+
+.comp-table-wrap {
+  overflow-x: auto;
+  margin-top: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.comp-table th {
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.comp-table td {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.comp-table td:first-child {
+  font-weight: 700;
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* ── IKD SUMMARY TABLE ── */
+.ikd-table-section { background: #f3f4f6; padding: 5rem 0; }
+
+.ikd-table-wrap {
+  overflow-x: auto;
+  margin-top: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--white);
+}
+
+.ikd-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.ikd-table th {
+  padding: 0.9rem 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  background: var(--ink);
+  color: rgba(255,255,255,0.7);
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.ikd-table th:first-child { color: var(--teal-light); }
+
+.ikd-table td {
+  padding: 0.85rem 1.1rem;
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.ikd-table tr:last-child td { border-bottom: none; }
+.ikd-table tr:hover td { background: #f9fafb; }
+
+.ikd-table td:first-child {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.pill-nas { background: #dbeafe; color: #1e40af; }
+.pill-int { background: #fce7f3; color: #9d174d; }
+.pill-aa { background: #e0f2fe; color: #0c4a6e; }
+.pill-l { background: #dcfce7; color: #14532d; }
+.pill-lk { background: #fef3c7; color: #78350f; }
+.pill-p { background: #fae8ff; color: #6b21a8; }
+
+/* ── LEMBAGA ── */
+.lembaga-section { background: var(--white); padding: 5rem 0; }
+
+.lembaga-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.lembaga-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  background: var(--page);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lembaga-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+}
+
+.lembaga-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.lembaga-num-box {
+  width: 36px; height: 36px;
+  background: var(--ink);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  flex-shrink: 0;
+}
+
+.lembaga-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.lembaga-name {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.lembaga-desc {
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.lembaga-links { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.lembaga-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.lembaga-link:hover { text-decoration: underline; }
+
+.warn-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: #78350f;
+  line-height: 1.5;
+  margin-top: 0.75rem;
+}
+
+/* ── CHECKLIST ── */
+.check-section { background: #f3f4f6; padding: 5rem 0; }
+
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.check-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.check-card-title {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.check-item:last-child { border-bottom: none; }
+
+.check-box {
+  width: 18px; height: 18px;
+  border: 2px solid var(--border-strong);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.check-item.done .check-box {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+}
+
+.check-item.done .check-box::after { content: '✓'; font-size: 0.7rem; font-weight: 700; }
+
+.check-text {
+  font-size: 0.84rem;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.check-item.done .check-text { color: var(--ink-light); text-decoration: line-through; }
+
+.prog-wrap { height: 4px; background: var(--border); border-radius: 4px; margin-top: 1.25rem; overflow: hidden; }
+.prog-bar { height: 100%; background: var(--teal); border-radius: 4px; width: 0%; transition: width 0.35s; }
+.prog-label { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--ink-light); margin-top: 0.4rem; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--ink);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.site-footer p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.3rem;
+  line-height: 1.7;
+}
+
+.site-footer strong { color: var(--teal-light); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.vis { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .karya-grid, .lembaga-grid, .check-grid { grid-template-columns: 1fr; }
+  .karya-card-full { grid-column: auto; }
+  .ikd-mini-grid { grid-template-columns: repeat(2, 1fr); }
+  .ki-types-grid { grid-template-columns: 1fr 1fr; }
+  .karya-row { grid-template-columns: 90px 1fr; }
+  .stat-bar { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:last-child { border-bottom: none; }
+}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-tag">Kepmendiktisaintek No. 39/M/KEP/2026 · IKD Dosen</div>
-  <h1>Panduan Lengkap<span>Policy Brief</span></h1>
-  <p class="hero-sub">Memahami policy brief sebagai salah satu pemenuhan Indikator Kinerja Dosen (IKD) dalam pengajuan kenaikan Jabatan Akademik Dosen.</p>
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">2–8</span>
-      <span class="stat-label">Halaman Ideal</span>
+  <div class="hero-label">Kepmendiktisaintek No. 39/M/KEP/2026 · IKD Sub-Dharma Penelitian</div>
+  <h1>5 Jenis Karya Setara<br><em>Karya Ilmiah IKD Dosen</em></h1>
+  <p class="hero-sub">Panduan lengkap Working Paper, White Paper, Policy Paper, Policy Brief, dan Karya Kekayaan Intelektual sebagai pemenuhan Indikator Kinerja Dosen.</p>
+
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-n">5</span>
+      <span class="stat-l">Jenis Karya</span>
     </div>
-    <div class="stat">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Jenis Lembaga Penerbit</span>
+    <div class="stat-item">
+      <span class="stat-n">4</span>
+      <span class="stat-l">Jenjang Jabatan</span>
     </div>
-    <div class="stat">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Jenjang Jabatan</span>
+    <div class="stat-item">
+      <span class="stat-n">4</span>
+      <span class="stat-l">Kategori Lembaga</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-n">IKD</span>
+      <span class="stat-l">Sub-indikator 2</span>
     </div>
   </div>
-  <div class="hero-cta">
-    <a href="#apa-itu" class="btn-primary">Mulai Belajar</a>
-    <a href="#checklist" class="btn-outline">Cek Kesiapan Saya</a>
+
+  <div class="source-strip">
+    <span class="src-badge">Kepmen 39/M/KEP/2026</span>
+    <span class="src-badge">PPT Sosialisasi Gel. I 2026</span>
+    <span class="src-badge">Tabel 16 Kepmen</span>
   </div>
-  <div class="scroll-hint">↓ &nbsp; scroll</div>
 </section>
 
 <!-- NAV -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a class="nav-link active" href="#apa-itu">Apa Itu</a>
+    <a class="nav-link active" href="#konteks">Konteks IKD</a>
+    <a class="nav-link" href="#karya">5 Jenis Karya</a>
     <a class="nav-link" href="#perbandingan">Perbandingan</a>
-    <a class="nav-link" href="#struktur">Struktur</a>
-    <a class="nav-link" href="#ikd">IKD per Jenjang</a>
+    <a class="nav-link" href="#ikd-jenjang">IKD per Jenjang</a>
     <a class="nav-link" href="#lembaga">Lembaga Penerbit</a>
-    <a class="nav-link" href="#contoh">Contoh Nyata</a>
     <a class="nav-link" href="#checklist">Checklist</a>
-    <a class="nav-link" href="#tips">Tips Praktis</a>
   </div>
 </nav>
 
-<!-- APA ITU -->
-<section id="apa-itu">
+<!-- KONTEKS -->
+<section id="konteks">
   <div class="section">
-    <div class="section-label reveal">Definisi Dasar</div>
-    <h2 class="section-title reveal">Apa Itu Policy Brief?</h2>
-    <div class="divider reveal"></div>
-    <p class="section-desc reveal">Policy brief adalah dokumen <strong>singkat, padat, dan berbasis bukti</strong> yang ditujukan kepada pengambil kebijakan — bukan komunitas akademik. Tujuannya membantu pembuat keputusan memahami isu dan mengambil tindakan konkret.</p>
+    <div class="section-label reveal">Posisi dalam Regulasi</div>
+    <h2 class="section-title reveal">Di Mana Letak 5 Karya Ini dalam IKD?</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">PPT Sosialisasi Kemdiktisaintek Gelombang I 2026 merinci IKD Dharma Penelitian & PkM ke dalam 3 sub-indikator. Kelima jenis karya ini masuk di <strong>Sub-Indikator 2</strong>.</p>
 
-    <div class="what-grid">
-      <div class="what-card reveal">
-        <div class="what-card-icon">📄</div>
-        <h3>Bukan Paper Akademik</h3>
-        <p>Policy brief tidak seperti artikel jurnal yang panjang dan penuh referensi. Bahasa harus ringkas, mudah dipahami pembuat kebijakan non-akademisi.</p>
+    <div class="alert alert-blue reveal" style="margin-top:2rem;">
+      <strong>📌 Sumber:</strong> Rincian IKD per jenjang berasal dari <em>PPT Sosialisasi Resmi Kemdiktisaintek Gelombang I 2026</em>. Teks Kepmen hanya menyebutkan "wajib memenuhi IKD" tanpa merinci per jenjang. Kriteria penerbit mengacu pada <em>Tabel 16 Kepmen 39/M/KEP/2026</em> tentang "Karya yang Setara Karya Ilmiah". Selalu cek sumber resmi terbaru dan konsultasi ke operator PAK.
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2rem;">
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.25rem; border-top:3px solid #6b7280;" class="reveal">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--ink-light); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Sub-IKD 1</div>
+        <div style="font-weight:700; font-size:0.9rem; color:var(--ink); margin-bottom:0.4rem;">Rekognisi Karya</div>
+        <div style="font-size:0.8rem; color:var(--ink-mid); line-height:1.55;">Artikel jurnal internasional, jurnal nasional, karya seni bereputasi, paten</div>
       </div>
-      <div class="what-card reveal">
-        <div class="what-card-icon">🎯</div>
-        <h3>Berorientasi Rekomendasi</h3>
-        <p>Fokus utamanya adalah 2–4 rekomendasi kebijakan yang konkret dan actionable, bukan sekedar deskripsi masalah atau tinjauan literatur.</p>
+      <div style="background:var(--teal-pale); border:1px solid var(--teal); border-radius:12px; padding:1.25rem; border-top:3px solid var(--teal); position:relative;" class="reveal">
+        <div style="position:absolute; top:-10px; right:12px; background:var(--teal); color:white; font-size:0.6rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:100px; text-transform:uppercase; letter-spacing:0.1em;">Fokus Panduan Ini</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Sub-IKD 2</div>
+        <div style="font-weight:700; font-size:0.9rem; color:var(--ink); margin-bottom:0.4rem;">Karya Setara Karya Ilmiah</div>
+        <div style="font-size:0.8rem; color:var(--ink-mid); line-height:1.55;"><strong>Working paper, White paper, Policy paper, Policy brief, Karya Kekayaan Intelektual</strong></div>
       </div>
-      <div class="what-card reveal">
-        <div class="what-card-icon">📊</div>
-        <h3>Berbasis Data & Bukti</h3>
-        <p>Setiap klaim harus didukung data dan fakta. Referensi dipakai seminimal mungkin — gunakan footnote agar tidak mengganggu alur baca.</p>
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.25rem; border-top:3px solid #6b7280;" class="reveal">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--ink-light); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Sub-IKD 3</div>
+        <div style="font-weight:700; font-size:0.9rem; color:var(--ink); margin-bottom:0.4rem;">Pengabdian Masyarakat</div>
+        <div style="font-size:0.8rem; color:var(--ink-mid); line-height:1.55;">Kegiatan PkM yang berdampak bagi masyarakat/industri/pemerintah</div>
       </div>
-      <div class="what-card reveal">
-        <div class="what-card-icon">🏛️</div>
-        <h3>Diterbitkan Lembaga Resmi</h3>
-        <p>Untuk diakui sebagai IKD, policy brief <em>harus</em> diterbitkan oleh lembaga bereputasi — bukan sekadar diunggah di website pribadi atau kampus sendiri.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 KARYA -->
+<section id="karya" style="background:#f3f4f6; padding:5rem 0;">
+  <div class="section">
+    <div class="section-label reveal">Sub-Indikator 2 · Karya Setara Karya Ilmiah</div>
+    <h2 class="section-title reveal">5 Jenis Karya yang Diakui</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Berdasarkan PPT Sosialisasi Resmi Kemdiktisaintek, dosen dapat memilih <strong>salah satu</strong> dari 5 jenis karya ini sebagai pemenuhan IKD Sub-indikator 2, dengan ketentuan rekognisi dan peran penulis yang disesuaikan per jenjang jabatan.</p>
+
+    <div class="alert alert-amber reveal">
+      ⚠️ <strong>Catatan rekognisi:</strong> Frasa "direkognisi nasional" atau "direkognisi internasional" mengacu pada pengakuan dari lembaga yang memenuhi kriteria Tabel 16 Kepmen — bukan sekadar dipublikasikan di media umum. Penilaian akhir ada di asesor SISTER, bukan sistem otomatis.
+    </div>
+
+    <div class="karya-grid" style="margin-top:2.5rem;">
+
+      <!-- 1. Working Paper -->
+      <div class="karya-card reveal">
+        <div class="karya-header">
+          <div class="karya-icon" style="background:var(--c1p);">📄</div>
+          <div class="karya-header-text">
+            <div class="karya-num" style="color:var(--c1);">Jenis 01</div>
+            <div class="karya-name">Working Paper</div>
+            <div class="karya-name-id">Kertas Kerja / Makalah Riset</div>
+          </div>
+        </div>
+        <div class="karya-body">
+          <p class="karya-def">Dokumen ilmiah yang menyajikan hasil penelitian yang <strong>belum atau sedang dalam proses</strong> peer-review. Diterbitkan untuk mendiseminasikan temuan awal, mendapat masukan, dan membangun diskusi ilmiah. Panjang dan format sepenuhnya ditentukan penerbit.</p>
+          <div class="karya-rows">
+            <div class="karya-row">
+              <span class="karya-row-label">Ditujukan</span>
+              <span class="karya-row-val">Komunitas akademik, peneliti, lembaga kajian</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Peer Review</span>
+              <span class="karya-row-val">Umumnya <strong>tidak wajib</strong> peer review formal — berbeda dari jurnal ilmiah</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Sifat</span>
+              <span class="karya-row-val">Dapat bersifat sementara (preliminary) — biasanya ada nomor seri dan dapat dikutip</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Contoh Platform</span>
+              <span class="karya-row-val">World Bank PRWP, LPEM UI Working Paper, NBER, OJK Working Paper, SSRN</span>
+            </div>
+          </div>
+          <div class="ikd-mini">
+            <div class="ikd-mini-title">Syarat IKD per Jenjang (Sub-IKD 2, Opsi b)</div>
+            <div class="ikd-mini-grid">
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c1);">Asst. Ahli</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-nasional">Nasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c1);">Lektor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-nasional">Nasional Bereputasi</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c1);">Lektor Kepala</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c1);">Profesor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- 2. White Paper -->
+      <div class="karya-card reveal">
+        <div class="karya-header">
+          <div class="karya-icon" style="background:var(--c2p);">📋</div>
+          <div class="karya-header-text">
+            <div class="karya-num" style="color:var(--c2);">Jenis 02</div>
+            <div class="karya-name">White Paper</div>
+            <div class="karya-name-id">Kertas Putih / Laporan Kebijakan</div>
+          </div>
+        </div>
+        <div class="karya-body">
+          <p class="karya-def">Dokumen otoritatif yang menguraikan suatu isu secara mendalam dan mengeksplorasi solusinya. Berasal dari tradisi dokumen pemerintah Inggris; kini digunakan pemerintah, industri, dan lembaga riset. Bersifat persuasif namun dengan data dan fakta yang kuat.</p>
+          <div class="karya-rows">
+            <div class="karya-row">
+              <span class="karya-row-label">Ditujukan</span>
+              <span class="karya-row-val">Pembuat kebijakan, pemimpin industri, legislator, masyarakat terinformasi</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Tujuan</span>
+              <span class="karya-row-val">Menjelaskan masalah kompleks dan <strong>merekomendasikan solusi spesifik</strong> atau menggambarkan pilihan-pilihan kebijakan</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Penerbit</span>
+              <span class="karya-row-val">Pemerintah, lembaga riset, think tank, asosiasi profesi, perusahaan konsultan besar</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Contoh Platform</span>
+              <span class="karya-row-val">OECD White Papers, Kementerian/Lembaga pemerintah, lembaga internasional bereputasi</span>
+            </div>
+          </div>
+          <div class="ikd-mini">
+            <div class="ikd-mini-title">Syarat IKD per Jenjang (Sub-IKD 2, Opsi b)</div>
+            <div class="ikd-mini-grid">
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c2);">Asst. Ahli</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-nasional">Nasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c2);">Lektor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-nasional">Nasional Bereputasi</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c2);">Lektor Kepala</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c2);">Profesor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Policy Paper -->
+      <div class="karya-card reveal">
+        <div class="karya-header">
+          <div class="karya-icon" style="background:var(--c3p);">🏛️</div>
+          <div class="karya-header-text">
+            <div class="karya-num" style="color:var(--c3);">Jenis 03</div>
+            <div class="karya-name">Policy Paper</div>
+            <div class="karya-name-id">Makalah Kebijakan</div>
+          </div>
+        </div>
+        <div class="karya-body">
+          <p class="karya-def">Dokumen komprehensif yang menganalisis suatu isu kebijakan secara mendalam — mencakup latar belakang, analisis alternatif, dan rekomendasi. Lebih panjang dan lebih analitis dari policy brief. Sering menjadi dasar perumusan kebijakan formal.</p>
+          <div class="karya-rows">
+            <div class="karya-row">
+              <span class="karya-row-label">Ditujukan</span>
+              <span class="karya-row-val">Pengambil kebijakan, analis kebijakan, pemangku kepentingan</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Berbeda dari Policy Brief</span>
+              <span class="karya-row-val">Lebih komprehensif, mencakup analisis detail, data empiris, tinjauan literatur, dan berbagai alternatif solusi</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Contoh di Indonesia</span>
+              <span class="karya-row-val">Policy paper BRIN (Penerbit BRIN memiliki seri khusus policy paper), Bappenas, kementerian</span>
+            </div>
+          </div>
+          <div class="ikd-mini">
+            <div class="ikd-mini-title">Syarat IKD per Jenjang (Sub-IKD 2, Opsi b)</div>
+            <div class="ikd-mini-grid">
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c3);">Asst. Ahli</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-nasional">Nasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c3);">Lektor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-nasional">Nasional Bereputasi</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c3);">Lektor Kepala</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c3);">Profesor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Policy Brief -->
+      <div class="karya-card reveal">
+        <div class="karya-header">
+          <div class="karya-icon" style="background:var(--c4p);">📌</div>
+          <div class="karya-header-text">
+            <div class="karya-num" style="color:var(--c4);">Jenis 04</div>
+            <div class="karya-name">Policy Brief</div>
+            <div class="karya-name-id">Ringkasan / Catatan Kebijakan</div>
+          </div>
+        </div>
+        <div class="karya-body">
+          <p class="karya-def">Dokumen yang menyajikan masalah kebijakan dan rekomendasi secara <strong>ringkas dan padat</strong> — ditujukan bagi pengambil keputusan yang tidak selalu memiliki banyak waktu. Panjang dokumen sangat bervariasi tergantung kebijakan penerbit.</p>
+          <div class="karya-rows">
+            <div class="karya-row">
+              <span class="karya-row-label">Ditujukan</span>
+              <span class="karya-row-val">Pengambil kebijakan, pejabat pemerintah, anggota legislatif, pimpinan lembaga</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Panjang</span>
+              <span class="karya-row-val"><strong>Tidak ada standar universal</strong> — sangat bergantung pada ketentuan penerbit. Dari yang sangat singkat hingga puluhan halaman</span>
+            </div>
+            <div class="karya-row">
+              <span class="karya-row-label">Catatan Kepmen</span>
+              <span class="karya-row-val">Disebut di PPT Sosialisasi; Tabel 16 Kepmen menyebut "policy paper" (tanpa "brief") — policy brief adalah penambahan dari PPT sosialisasi</span>
+            </div>
+          </div>
+          <div class="ikd-mini">
+            <div class="ikd-mini-title">Syarat IKD per Jenjang (Sub-IKD 2, Opsi b)</div>
+            <div class="ikd-mini-grid">
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c4);">Asst. Ahli</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-nasional">Nasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c4);">Lektor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-nasional">Nasional Bereputasi</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c4);">Lektor Kepala</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c4);">Profesor</div>
+                <div class="ikd-syarat">Penulis pertama</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Karya KI -->
+      <div class="karya-card karya-card-full reveal">
+        <div class="karya-header">
+          <div class="karya-icon" style="background:var(--c5p);">💡</div>
+          <div class="karya-header-text">
+            <div class="karya-num" style="color:var(--c5);">Jenis 05</div>
+            <div class="karya-name">Karya Kekayaan Intelektual yang Direkognisi</div>
+            <div class="karya-name-id">HKI yang Memiliki Dampak Sosial/Ekonomi/Lingkungan Terukur</div>
+          </div>
+        </div>
+        <div class="karya-body">
+          <p class="karya-def">Berbeda dengan 4 jenis di atas, karya KI bukan dokumen tertulis melainkan <strong>karya inovasi/kreasi yang dilindungi hukum</strong> dan telah direkognisi oleh asosiasi profesi, asosiasi industri, lembaga akreditasi/standarisasi, atau lembaga pemerintah/internasional bereputasi — serta memiliki nilai sosial, ekonomi, atau lingkungan yang terukur dan diverifikasi (Tabel 16 Kepmen).</p>
+
+          <div class="ki-types-grid">
+            <div class="ki-type">
+              <div class="ki-type-name">🔬 Paten & Paten Sederhana</div>
+              <div class="ki-type-desc">Invensi di bidang teknologi yang baru, mengandung langkah inventif, dan dapat diterapkan. Didaftarkan ke DJKI Kemenkumham.</div>
+            </div>
+            <div class="ki-type">
+              <div class="ki-type-name">🎨 Desain Industri</div>
+              <div class="ki-type-desc">Kreasi tentang bentuk, konfigurasi, atau komposisi garis/warna dari suatu produk yang memberikan kesan estetis.</div>
+            </div>
+            <div class="ki-type">
+              <div class="ki-type-name">©️ Hak Cipta</div>
+              <div class="ki-type-desc">Karya di bidang ilmu, seni, sastra — termasuk program komputer, karya tulis, musik, film, database, dll.</div>
+            </div>
+            <div class="ki-type">
+              <div class="ki-type-name">🤫 Rahasia Dagang</div>
+              <div class="ki-type-desc">Informasi di bidang teknologi atau bisnis yang bernilai ekonomi dan dijaga kerahasiaannya secara aktif.</div>
+            </div>
+            <div class="ki-type">
+              <div class="ki-type-name">🔌 Desain Tata Letak Sirkuit Terpadu</div>
+              <div class="ki-type-desc">Rancangan letak tiga dimensi dari elemen komponen sirkuit terpadu (chip/IC).</div>
+            </div>
+            <div class="ki-type">
+              <div class="ki-type-name">🌱 Perlindungan Varietas Tanaman</div>
+              <div class="ki-type-desc">Hak atas varietas tanaman yang dihasilkan melalui pemuliaan tanaman — relevan untuk dosen pertanian, biologi, kedokteran.</div>
+            </div>
+          </div>
+
+          <div class="ikd-mini" style="margin-top:1.5rem;">
+            <div class="ikd-mini-title">Syarat IKD per Jenjang — Karya KI (Sub-IKD 2, Opsi b · Sumber: PPT Sosialisasi Gel. I 2026)</div>
+            <div class="ikd-mini-grid">
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c5);">Asst. Ahli</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-nasional">Nasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c5);">Lektor</div>
+                <div class="ikd-syarat">Penulis <strong>pertama</strong></div>
+                <span class="tag-nasional">Nasional Bereputasi</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c5);">Lektor Kepala</div>
+                <div class="ikd-syarat">Penulis anggota</div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+              <div class="ikd-mini-item">
+                <div class="ikd-jenjang" style="color:var(--c5);">Profesor</div>
+                <div class="ikd-syarat">Penulis <strong>pertama</strong></div>
+                <span class="tag-internasional">Internasional</span>
+              </div>
+            </div>
+            <div class="alert alert-teal" style="margin-top:1rem;">
+              <strong>Catatan KI:</strong> "Direkognisi" berarti karya KI sudah diakui/diverifikasi oleh lembaga yang berwenang (asosiasi profesi, asosiasi industri, lembaga pemerintah, atau lembaga internasional) <em>dan</em> menunjukkan hasil berupa penghargaan, sertifikasi, atau konfirmasi komersialisasi. Sekadar memiliki sertifikat paten belum tentu cukup — harus ada bukti impact yang terukur (Tabel 16 Kepmen).
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- PERBANDINGAN -->
-<section id="perbandingan" class="compare-section">
-  <div class="compare-inner">
-    <div class="section-label reveal" style="color:var(--gold-light)">Bedakan dengan Jelas</div>
-    <h2 class="section-title reveal" style="color:white">Policy Brief vs Karya Ilmiah Lainnya</h2>
-    <div class="divider reveal"></div>
-
-    <table class="compare-table reveal">
-      <thead>
-        <tr>
-          <th>Jenis Karya</th>
-          <th>Ditujukan Untuk</th>
-          <th>Panjang</th>
-          <th>Fokus Utama</th>
-          <th>Gaya Bahasa</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Policy Brief</td>
-          <td>Pengambil kebijakan</td>
-          <td>2–8 halaman</td>
-          <td>Rekomendasi konkret</td>
-          <td>Ringkas, non-teknis</td>
-        </tr>
-        <tr>
-          <td>Policy Paper</td>
-          <td>Pengambil kebijakan</td>
-          <td>10–20 halaman</td>
-          <td>Analisis + alternatif kebijakan</td>
-          <td>Semi-akademik</td>
-        </tr>
-        <tr>
-          <td>White Paper</td>
-          <td>Industri / pemerintah</td>
-          <td>10–30 halaman</td>
-          <td>Analisis mendalam + solusi</td>
-          <td>Formal, semi-teknis</td>
-        </tr>
-        <tr>
-          <td>Working Paper</td>
-          <td>Komunitas akademik</td>
-          <td>15–40 halaman</td>
-          <td>Riset yang sedang berjalan</td>
-          <td>Akademik, detail</td>
-        </tr>
-        <tr>
-          <td>Artikel Jurnal</td>
-          <td>Komunitas akademik</td>
-          <td>8–25 halaman</td>
-          <td>Temuan riset & metodologi</td>
-          <td>Akademik, sangat formal</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- STRUKTUR -->
-<section id="struktur">
+<section id="perbandingan" class="comp-section">
   <div class="section">
-    <div class="section-label reveal">Panduan Penulisan</div>
-    <h2 class="section-title reveal">Struktur Policy Brief yang Baik</h2>
-    <div class="divider reveal"></div>
-    <p class="section-desc reveal">Struktur ini tidak baku dan bisa disesuaikan, namun logika analitis dan orientasi pemecahan masalah harus selalu ada.</p>
+    <div class="section-label reveal" style="color:var(--teal-light);">Membedakan Secara Jelas</div>
+    <h2 class="section-title reveal" style="color:white;">Perbandingan 5 Jenis Karya</h2>
+    <div class="rule reveal" style="background:var(--teal-light);"></div>
 
-    <div class="structure-steps">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">Judul yang Catchy</div>
-          <div class="step-desc">Buat judul yang memunculkan minat pembaca. Judul harus langsung menggambarkan isu dan rekomendasi, bukan sekadar topik umum.</div>
-          <div class="step-meta">Contoh: "Krisis Dosen Vokasi: Mengapa Insentif Berbasis Kinerja Jadi Kunci"</div>
-        </div>
-      </div>
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Jenis Karya</th>
+            <th>Audiens Utama</th>
+            <th>Tujuan</th>
+            <th>Peer Review</th>
+            <th>Gaya Penulisan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dot" style="background:var(--c1);"></span>Working Paper</td>
+            <td>Komunitas akademik, peneliti</td>
+            <td>Diseminasi riset awal, mendapat masukan komunitas ilmiah</td>
+            <td>Umumnya tidak wajib</td>
+            <td>Akademik, teknis, detail metodologi</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:var(--c2);"></span>White Paper</td>
+            <td>Pemerintah, industri, legislator</td>
+            <td>Menjelaskan isu kompleks + eksplorasi solusi</td>
+            <td>Tidak selalu, tergantung penerbit</td>
+            <td>Otoritatif, faktual, persuasif berbasis data</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:var(--c3);"></span>Policy Paper</td>
+            <td>Pengambil kebijakan, analis</td>
+            <td>Analisis mendalam + rekomendasi kebijakan</td>
+            <td>Tergantung penerbit</td>
+            <td>Semi-akademik, analitis, komprehensif</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:var(--c4);"></span>Policy Brief</td>
+            <td>Pengambil kebijakan, pejabat</td>
+            <td>Ringkasan masalah + rekomendasi konkret</td>
+            <td>Tergantung penerbit</td>
+            <td>Ringkas, non-teknis, berorientasi aksi</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:var(--c5);"></span>Karya KI</td>
+            <td>Industri, pemerintah, masyarakat</td>
+            <td>Inovasi/kreasi yang memiliki dampak sosial-ekonomi terukur</td>
+            <td>Diverifikasi lembaga berwenang</td>
+            <td>Bukan dokumen tertulis — karya nyata yang terdaftar secara hukum</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <div class="step reveal">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">Ringkasan Eksekutif</div>
-          <div class="step-desc">Berisi ringkasan masalah dan solusi yang ditawarkan. Ditulis paling akhir, dibaca paling awal. Maksimal 200 kata. Jika pembaca hanya membaca bagian ini, mereka harus menangkap inti pesan.</div>
-          <div class="step-meta">Maks. 200 kata</div>
-        </div>
-      </div>
-
-      <div class="step reveal">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <div class="step-title">Latar Belakang & Konteks Masalah</div>
-          <div class="step-desc">Jelaskan mengapa isu ini penting dan mendesak. Dukung dengan data faktual. Tingkatkan keyakinan pembaca bahwa masalah harus segera diatasi. Hindari kutipan akademik yang berlebihan.</div>
-          <div class="step-meta">Maks. 500 kata</div>
-        </div>
-      </div>
-
-      <div class="step reveal">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <div class="step-title">Analisis & Opsi Kebijakan</div>
-          <div class="step-desc">Uraikan 2–3 alternatif solusi beserta kelebihan dan kekurangan masing-masing. Ini yang membedakan policy brief dari sekedar laporan deskriptif.</div>
-          <div class="step-meta">Inti dokumen</div>
-        </div>
-      </div>
-
-      <div class="step reveal">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <div class="step-title">Rekomendasi Kebijakan</div>
-          <div class="step-desc">Pilihan terbaik beserta alasan, pihak yang harus bertindak, dan langkah konkret. Tulis dalam 2–4 rekomendasi spesifik, bukan pernyataan umum. Ini adalah jantung dari policy brief.</div>
-          <div class="step-meta">Maks. 1.000 kata · 2–4 rekomendasi</div>
-        </div>
-      </div>
-
-      <div class="step reveal">
-        <div class="step-num">6</div>
-        <div class="step-body">
-          <div class="step-title">Referensi (Ringkas)</div>
-          <div class="step-desc">Hanya referensi utama yang benar-benar dipakai. Gunakan format footnote agar tidak mengganggu alur baca. Tidak perlu daftar pustaka panjang seperti artikel jurnal.</div>
-          <div class="step-meta">Singkat, footnote</div>
-        </div>
-      </div>
+    <div class="alert alert-teal reveal" style="margin-top:1.5rem; background:rgba(14,165,133,0.1); border-color:var(--teal-light); color:rgba(255,255,255,0.75);">
+      <strong style="color:var(--teal-light);">Persamaan keempatnya (1–4):</strong> Semua merupakan dokumen tertulis yang menjembatani hasil riset dengan pembuat kebijakan atau pemangku kepentingan. Keempatnya menghindari gaya artikel jurnal yang sangat teknis dan panjang.
     </div>
   </div>
 </section>
 
-<!-- IKD PER JENJANG -->
-<section id="ikd" style="background: #f4f6f9; padding: 5rem 0;">
+<!-- IKD PER JENJANG RINGKASAN -->
+<section id="ikd-jenjang" class="ikd-table-section">
   <div class="section">
-    <div class="section-label reveal">Kepmendiktisaintek 39/M/KEP/2026</div>
-    <h2 class="section-title reveal">IKD Policy Brief per Jenjang Jabatan</h2>
-    <div class="divider reveal"></div>
-    <p class="section-desc reveal">Policy brief dan karya sejenis masuk sebagai IKD Dharma Penelitian & PkM sub-indikator 2. Klaim dihitung sejak TMT jabatan akademik terakhir. <em>Sumber: PPT Sosialisasi Kemdiktisaintek Gel. I 2026 + Kepmen 39/M/KEP/2026.</em></p>
-    <div style="background:#eff6ff; border-left:4px solid #3b82f6; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-top:1.5rem; font-size:0.85rem; color:#1e3a5f; line-height:1.7;">
-      <strong>📌 Penting:</strong> Rincian IKD per jenjang berikut bersumber dari <strong>PPT Sosialisasi Resmi Kemdiktisaintek Gelombang I 2026</strong> — bukan dari teks narasi Kepmen (yang hanya menyebut "wajib memenuhi IKD" tanpa rincian). Untuk kepastian, selalu acu pada dokumen sosialisasi resmi terbaru dari Direktorat Sumber Daya.
+    <div class="section-label reveal">Berdasarkan PPT Sosialisasi Kemdiktisaintek Gel. I 2026</div>
+    <h2 class="section-title reveal">Ringkasan IKD Sub-Indikator 2 per Jenjang</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Semua 5 jenis karya memiliki persyaratan rekognisi dan peran penulis yang <strong>sama per jenjang</strong>. Klaim IKD dihitung sejak TMT jabatan akademik terakhir.</p>
+
+    <div class="ikd-table-wrap reveal">
+      <table class="ikd-table">
+        <thead>
+          <tr>
+            <th>Jenjang</th>
+            <th>Rekognisi</th>
+            <th>Peran Penulis / Posisi</th>
+            <th>Berlaku untuk Semua 5 Jenis Karya</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Asisten Ahli</td>
+            <td><span class="pill pill-nas">Nasional</span></td>
+            <td>Penulis <strong>anggota</strong> (bukan harus penulis pertama)</td>
+            <td>Working paper, white paper, policy paper, policy brief, karya KI yang direkognisi nasional — sebagai anggota</td>
+          </tr>
+          <tr>
+            <td>Lektor</td>
+            <td><span class="pill pill-nas">Nasional Bereputasi</span></td>
+            <td>Penulis <strong>pertama</strong></td>
+            <td>Sama dengan AA, namun harus <em>bereputasi</em> dan harus sebagai penulis pertama</td>
+          </tr>
+          <tr>
+            <td>Lektor Kepala</td>
+            <td><span class="pill pill-int">Internasional Bereputasi</span></td>
+            <td>Penulis <strong>anggota</strong></td>
+            <td>Rekognisi naik ke tingkat internasional. Cukup sebagai anggota</td>
+          </tr>
+          <tr>
+            <td>Profesor</td>
+            <td><span class="pill pill-int">Internasional Bereputasi</span></td>
+            <td>Penulis <strong>pertama</strong></td>
+            <td>Standar tertinggi: internasional <em>dan</em> penulis pertama</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="tab-container reveal">
-      <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('aa', this)">Asisten Ahli</button>
-        <button class="tab-btn" onclick="switchTab('l', this)">Lektor</button>
-        <button class="tab-btn" onclick="switchTab('lk', this)">Lektor Kepala</button>
-        <button class="tab-btn" onclick="switchTab('p', this)">Profesor</button>
-      </div>
-
-      <!-- Asisten Ahli -->
-      <div class="tab-pane active" id="tab-aa">
-        <div class="ikd-grid">
-          <div class="ikd-card">
-            <span class="ikd-badge badge-aa">Sub-IKD 2 · Opsi b</span>
-            <h4>Karya setara karya ilmiah (working paper / white paper / policy paper / policy brief)</h4>
-            <p>Direkognisi secara <strong>nasional</strong>, dengan peran sebagai <strong>penulis anggota</strong>.</p>
-          </div>
-          <div class="ikd-card">
-            <span class="ikd-badge badge-aa">Catatan Penting</span>
-            <h4>Ini adalah salah SATU dari beberapa opsi IKD Sub-Dharma Penelitian</h4>
-            <p>Opsi lain: artikel jurnal internasional (SJR 0,1), jurnal nasional terakreditasi peringkat 4, atau prosiding internasional terindeks Scopus/WoS sebagai anggota.</p>
-          </div>
-        </div>
-        <div style="margin-top:1rem; background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.25rem;">
-          <p style="font-size:0.85rem; color:var(--text-mid); line-height:1.7;">💡 <strong>Catatan:</strong> Untuk Asisten Ahli, policy brief hanya perlu direkognisi secara <em>nasional</em> (bukan internasional), dan cukup sebagai penulis anggota — ini relatif lebih mudah dibanding jenjang lebih tinggi.</p>
-        </div>
-      </div>
-
-      <!-- Lektor -->
-      <div class="tab-pane" id="tab-l">
-        <div class="ikd-grid">
-          <div class="ikd-card">
-            <span class="ikd-badge badge-l">Sub-IKD 2 · Opsi b</span>
-            <h4>Karya setara karya ilmiah bereputasi (working paper / white paper / policy paper / policy brief)</h4>
-            <p>Direkognisi secara <strong>nasional yang bereputasi</strong>, dengan peran sebagai <strong>penulis pertama</strong>.</p>
-          </div>
-          <div class="ikd-card">
-            <span class="ikd-badge badge-l">Peningkatan dari AA</span>
-            <h4>Naik satu level: harus jadi penulis pertama</h4>
-            <p>Di jenjang Lektor, tidak cukup sebagai anggota. Harus menjadi penulis pertama (corresponding author atau lead author).</p>
-          </div>
-        </div>
-        <div style="margin-top:1rem; background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.25rem;">
-          <p style="font-size:0.85rem; color:var(--text-mid); line-height:1.7;">💡 <strong>Strategi:</strong> Kolaborasikan dengan lembaga riset bereputasi seperti SMERU, CSIS, atau pusat kajian universitas ternama sebagai penerbit, dan pastikan Anda tercatat sebagai penulis pertama.</p>
-        </div>
-      </div>
-
-      <!-- Lektor Kepala -->
-      <div class="tab-pane" id="tab-lk">
-        <div class="ikd-grid">
-          <div class="ikd-card">
-            <span class="ikd-badge badge-lk">Sub-IKD 2 · Opsi b</span>
-            <h4>Karya setara karya ilmiah (working paper / white paper / policy paper / policy brief)</h4>
-            <p>Direkognisi secara <strong>internasional yang bereputasi</strong>, dengan peran sebagai <strong>penulis anggota</strong>.</p>
-          </div>
-          <div class="ikd-card">
-            <span class="ikd-badge badge-lk">Tingkat Kesulitan Lebih Tinggi</span>
-            <h4>Harus rekognisi internasional</h4>
-            <p>Tidak cukup lembaga nasional. Harus diterbitkan atau direkognisi oleh lembaga internasional bereputasi seperti World Bank, UNDP, ADB, atau asosiasi profesi internasional.</p>
-          </div>
-        </div>
-        <div style="margin-top:1rem; background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.25rem;">
-          <p style="font-size:0.85rem; color:var(--text-mid); line-height:1.7;">💡 <strong>Strategi:</strong> Pertimbangkan publikasi melalui working paper series lembaga internasional (World Bank Policy Research Working Paper, ADB Working Paper, dll) yang memiliki repositori resmi dan DOI.</p>
-        </div>
-      </div>
-
-      <!-- Profesor -->
-      <div class="tab-pane" id="tab-p">
-        <div class="ikd-grid">
-          <div class="ikd-card">
-            <span class="ikd-badge badge-p">Sub-IKD 2 · Opsi b</span>
-            <h4>Karya setara karya ilmiah (working paper / white paper / policy paper / policy brief)</h4>
-            <p>Direkognisi secara <strong>internasional yang bereputasi</strong>, dengan peran sebagai <strong>penulis pertama</strong>.</p>
-          </div>
-          <div class="ikd-card">
-            <span class="ikd-badge badge-p">Standar Tertinggi</span>
-            <h4>Internasional + Penulis Pertama</h4>
-            <p>Kombinasi paling ketat: harus direkognisi internasional DAN harus sebagai penulis pertama. Alternatif lain: buku referensi/monograf/buku ajar ber-ISBN min. 125 halaman.</p>
-          </div>
-        </div>
-        <div style="margin-top:1rem; background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.25rem;">
-          <p style="font-size:0.85rem; color:var(--text-mid); line-height:1.7;">💡 <strong>Alternatif lebih mudah:</strong> Untuk jenjang Profesor, menerbitkan buku referensi/monograf/buku ajar ber-ISBN minimal 125 halaman mungkin lebih strategis dibanding mengejar policy brief internasional sebagai penulis pertama.</p>
-        </div>
-      </div>
+    <div class="alert alert-amber reveal">
+      ⚠️ <strong>Ingat:</strong> IKD Sub-indikator 2 ini adalah <em>salah satu pilihan</em> — bukan satu-satunya. Dosen dapat memilih Sub-IKD 2 opsi a (prosiding terindeks) atau opsi b (5 jenis karya ini). Pilih yang paling sesuai dengan bidang dan capaian riset Anda.
     </div>
   </div>
 </section>
 
-<!-- LEMBAGA -->
-<section id="lembaga">
+<!-- LEMBAGA PENERBIT -->
+<section id="lembaga" class="lembaga-section">
   <div class="section">
-    <div class="section-label reveal">Kepmen Tabel 16 · Panduan Kriteria Penulisan</div>
+    <div class="section-label reveal">Tabel 16 Kepmen 39/M/KEP/2026</div>
     <h2 class="section-title reveal">4 Kategori Lembaga Penerbit yang Diakui</h2>
-    <div class="divider reveal"></div>
-    <p class="section-desc reveal">Kriteria ini tercantum di Kepmen Tabel 16 tentang <em>"Kriteria Penulisan Karya Ilmiah atas Penerapan Kekayaan Intelektual atau karya yang setara"</em> — yang dirujuk oleh IKD. Kepmen hanya menyebut kategori umum, bukan nama lembaga spesifik.</p>
-    <div style="background:#fff8e1; border-left:4px solid #f59e0b; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:0.85rem; color:#78350f; line-height:1.7;">
-      <strong>⚠️ Catatan Sumber:</strong> Tabel 16 Kepmen menyebutkan <em>"working paper, white paper, policy paper"</em> — tanpa menyebut "policy brief" secara eksplisit. Namun PPT Sosialisasi resmi Kemdiktisaintek Gel. I 2026 secara tegas menambahkan <strong>"policy brief"</strong> dalam daftar IKD. Contoh nama lembaga di bawah ini bersifat <strong>ilustratif</strong> — keputusan akhir ada pada asesor di SISTER. Selalu konsultasikan ke operator PAK institusi Anda.
-    </div>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Untuk karya jenis 1–4 (dokumen tertulis), Tabel 16 Kepmen mensyaratkan diterbitkan oleh salah satu dari 4 kategori berikut. Kepmen hanya menyebut kategori umum — <strong>tidak ada daftar nama lembaga resmi</strong>. Nama-nama di bawah bersifat ilustratif.</p>
 
     <div class="lembaga-grid">
       <div class="lembaga-card reveal">
-        <div class="lembaga-num">01</div>
-        <div class="lembaga-type">Kategori A</div>
-        <h3>Asosiasi Profesi Bereputasi</h3>
-        <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:0.75rem;">Asosiasi profesi yang memiliki legal standing, menerbitkan publikasi kebijakan, dan diakui secara nasional/internasional di bidang kepakaran Anda.</p>
-        <ul class="lembaga-examples">
-          <li>Ikatan Dokter Indonesia (IDI) — <a href="https://idionline.org" target="_blank" style="color:var(--accent-blue);font-size:0.78rem;">idionline.org</a></li>
-          <li>Ikatan Akuntan Indonesia (IAI) — <a href="https://iaiglobal.or.id" target="_blank" style="color:var(--accent-blue);font-size:0.78rem;">iaiglobal.or.id</a></li>
-          <li>Persatuan Insinyur Indonesia (PII) — <a href="https://pii.or.id" target="_blank" style="color:var(--accent-blue);font-size:0.78rem;">pii.or.id</a></li>
-          <li>Asosiasi sesuai bidang kepakaran Anda</li>
-        </ul>
-        <p style="font-size:0.78rem;color:#92400e;background:#fef3c7;border-radius:6px;padding:0.5rem 0.75rem;margin-top:0.75rem;">⚠️ Contoh nama bersifat ilustratif — tidak tercantum di Kepmen. Tidak semua asosiasi menerbitkan policy brief. Konfirmasi ke operator PAK sebelum mengklaim.</p>
+        <div class="lembaga-top">
+          <div class="lembaga-num-box">A</div>
+          <div>
+            <div class="lembaga-type">Kategori A</div>
+            <div class="lembaga-name">Asosiasi Profesi Bereputasi</div>
+          </div>
+        </div>
+        <p class="lembaga-desc">Asosiasi profesi yang memiliki badan hukum, diakui secara nasional/internasional, dan aktif menerbitkan publikasi kebijakan. Pastikan asosiasi memang memiliki program penerbitan karya ilmiah — tidak semua asosiasi menerbitkan working paper/policy brief.</p>
+        <div class="lembaga-links">
+          <a class="lembaga-link" href="https://idionline.org" target="_blank">→ IDI (Ikatan Dokter Indonesia)</a>
+          <a class="lembaga-link" href="https://iaiglobal.or.id" target="_blank">→ IAI (Ikatan Akuntan Indonesia)</a>
+          <a class="lembaga-link" href="https://pii.or.id" target="_blank">→ PII (Persatuan Insinyur Indonesia)</a>
+        </div>
+        <div class="warn-box">⚠️ Contoh nama bersifat ilustratif — tidak dari Kepmen. Konfirmasi ke operator PAK sebelum mengklaim.</div>
       </div>
 
       <div class="lembaga-card reveal">
-        <div class="lembaga-num">02</div>
-        <div class="lembaga-type">Kategori B</div>
-        <h3>Lembaga Riset yang Diakui</h3>
-        <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:0.75rem;">Lembaga riset independen yang terbukti menerbitkan policy brief/working paper secara rutin dengan repositori resmi dan terverifikasi.</p>
-        <ul class="lembaga-examples">
-          <li>
-            SMERU Research Institute
-            <a href="https://smeru.or.id/id/publication" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ smeru.or.id/id/publication</a>
-          </li>
-          <li>
-            BRIN — Penerbit Policy Paper resmi
-            <a href="https://penerbit.brin.go.id/press/catalog/series/policy-paper" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ penerbit.brin.go.id</a>
-          </li>
-          <li>
-            CSIS Indonesia
-            <a href="https://www.csis.or.id/publications" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ csis.or.id/publications</a>
-          </li>
-        </ul>
-        <p style="font-size:0.78rem;color:#92400e;background:#fef3c7;border-radius:6px;padding:0.5rem 0.75rem;margin-top:0.75rem;">⚠️ Contoh ilustratif. BRIN terbukti menerbitkan policy paper secara resmi. Konfirmasi ke operator PAK apakah lembaga yang Anda pilih diakui asesor.</p>
+        <div class="lembaga-top">
+          <div class="lembaga-num-box">B</div>
+          <div>
+            <div class="lembaga-type">Kategori B</div>
+            <div class="lembaga-name">Lembaga Riset yang Diakui</div>
+          </div>
+        </div>
+        <p class="lembaga-desc">Lembaga riset independen atau pemerintah yang terbukti menerbitkan publikasi kebijakan secara rutin dengan repositori resmi dan terverifikasi.</p>
+        <div class="lembaga-links">
+          <a class="lembaga-link" href="https://smeru.or.id/id/publication" target="_blank">→ SMERU Research Institute (publikasi)</a>
+          <a class="lembaga-link" href="https://penerbit.brin.go.id/press/catalog/series/policy-paper" target="_blank">→ Penerbit BRIN — Seri Policy Paper</a>
+          <a class="lembaga-link" href="https://www.csis.or.id/publications" target="_blank">→ CSIS Indonesia (publikasi)</a>
+          <a class="lembaga-link" href="https://lpem.org/category/publikasi/workingpapers/" target="_blank">→ LPEM FEB UI — Working Papers</a>
+          <a class="lembaga-link" href="https://ojk.go.id/id/data-dan-statistik/research/working-paper/default.aspx" target="_blank">→ OJK — Working Paper</a>
+        </div>
+        <div class="warn-box">⚠️ Contoh ilustratif. BRIN dan LPEM UI terbukti memiliki seri publikasi resmi. Konfirmasi ke operator PAK.</div>
       </div>
 
       <div class="lembaga-card reveal">
-        <div class="lembaga-num">03</div>
-        <div class="lembaga-type">Kategori C</div>
-        <h3>Perguruan Tinggi QS200</h3>
-        <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:0.75rem;">Universitas yang masuk peringkat QS World University Rankings 200 besar. Cek peringkat terkini sebelum mengklaim — daftar berubah tiap tahun.</p>
-        <ul class="lembaga-examples">
-          <li>NUS, NTU (Singapura), U. Melbourne (Australia)</li>
-          <li>MIT, Harvard, Oxford (internasional)</li>
-          <li>
-            Cek daftar resmi QS200
-            <a href="https://www.topuniversities.com/university-rankings/world-university-rankings/2025" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ topuniversities.com (QS Rankings 2025)</a>
-          </li>
-        </ul>
-        <p style="font-size:0.78rem;color:#92400e;background:#fef3c7;border-radius:6px;padding:0.5rem 0.75rem;margin-top:0.75rem;">⚠️ UI & UGM perlu dikonfirmasi posisi di QS200 dunia (bukan QS Asia). Wajib cek peringkat terkini di link di atas sebelum mengklaim.</p>
+        <div class="lembaga-top">
+          <div class="lembaga-num-box">C</div>
+          <div>
+            <div class="lembaga-type">Kategori C</div>
+            <div class="lembaga-name">Perguruan Tinggi QS200</div>
+          </div>
+        </div>
+        <p class="lembaga-desc">Universitas yang masuk 200 besar QS World University Rankings. Daftar berubah setiap tahun — wajib verifikasi peringkat terkini sebelum mengklaim. QS200 mengacu ranking dunia, bukan QS Asia.</p>
+        <div class="lembaga-links">
+          <a class="lembaga-link" href="https://www.topuniversities.com/university-rankings/world-university-rankings/2025" target="_blank">→ Cek Daftar Resmi QS World Rankings 2025</a>
+          <a class="lembaga-link" href="https://www.ntu.edu.sg/research/research-publications" target="_blank">→ Contoh: NTU Singapore — Research Publications</a>
+          <a class="lembaga-link" href="https://www.nus.edu.sg/research/publications" target="_blank">→ Contoh: NUS Singapore — Publications</a>
+        </div>
+        <div class="warn-box">⚠️ Wajib cek peringkat terkini di link QS di atas sebelum mengklaim. Pastikan universitas memang masuk QS200 <em>dunia</em> pada tahun karya terbit — bukan QS Asia atau QS regional lainnya.</div>
       </div>
 
       <div class="lembaga-card reveal">
-        <div class="lembaga-num">04</div>
-        <div class="lembaga-type">Kategori D</div>
-        <h3>Lembaga Internasional Bereputasi</h3>
-        <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:0.75rem;">Lembaga multilateral/internasional yang memiliki repositori publikasi resmi, DOI terverifikasi, dan terbukti menerbitkan working paper/policy brief.</p>
-        <ul class="lembaga-examples">
-          <li>
-            World Bank — Policy Research Working Papers
-            <a href="https://www.worldbank.org/en/research/brief/world-bank-policy-research-working-papers" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ worldbank.org/en/research/brief/...</a>
-          </li>
-          <li>
-            ADB — Papers and Policy Briefs (termasuk Indonesia)
-            <a href="https://www.adb.org/publications/series/acdp-indonesia-papers-and-policy-briefs" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ adb.org/publications/series/acdp-indonesia...</a>
-          </li>
-          <li>
-            UNDP Indonesia — Publikasi
-            <a href="https://www.undp.org/indonesia/publications" target="_blank" style="color:var(--accent-blue);font-size:0.75rem;display:block;margin-left:0.5rem;">→ undp.org/indonesia/publications</a>
-          </li>
-        </ul>
-        <p style="font-size:0.78rem;color:#92400e;background:#fef3c7;border-radius:6px;padding:0.5rem 0.75rem;margin-top:0.75rem;">⚠️ Contoh ilustratif. Ketiga lembaga ini terbukti memiliki repositori publikasi resmi yang dapat diakses publik. Kepmen hanya menyebut "lembaga internasional bereputasi" secara generik.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTOH NYATA -->
-<section id="contoh" class="example-section">
-  <div class="example-inner">
-    <div class="section-label reveal" style="color:var(--gold-light)">Simulasi Visual</div>
-    <h2 class="section-title reveal" style="color:white">Tampilan Policy Brief yang Baik</h2>
-    <div class="divider reveal"></div>
-    <p class="section-desc reveal" style="color:rgba(255,255,255,0.6)">Berikut simulasi tampilan visual policy brief yang diterbitkan oleh lembaga bereputasi. Policy brief memiliki desain yang profesional, ringkas, dan mudah dipindai (scannable).</p>
-
-    <div class="mock-brief reveal">
-      <div class="mock-header">
-        <div class="mock-logo-area">
-          <div class="mock-logo-box">SR</div>
-          <div class="mock-logo-text">
-            <strong>SMERU Research Institute</strong>
-            Lembaga Riset Kebijakan Publik
+        <div class="lembaga-top">
+          <div class="lembaga-num-box">D</div>
+          <div>
+            <div class="lembaga-type">Kategori D</div>
+            <div class="lembaga-name">Lembaga Internasional Bereputasi</div>
           </div>
         </div>
-        <div class="mock-badge">Policy Brief · No. 12/2025</div>
-      </div>
-
-      <div class="mock-body">
-        <div class="mock-main">
-          <div class="mock-tag">Pendidikan Tinggi · Sumber Daya Dosen</div>
-          <div class="mock-title">Memperkuat Insentif Dosen Vokasi: Strategi Meningkatkan Kualitas Pendidikan Tinggi Terapan di Indonesia</div>
-
-          <div class="mock-exec">
-            <div class="mock-exec-label">Ringkasan Eksekutif</div>
-            <p>Indonesia menghadapi kesenjangan kualitas dosen vokasi yang signifikan, dengan hanya 23% memiliki pengalaman industri relevan. Studi ini menganalisis tiga opsi kebijakan dan merekomendasikan reformasi sistem insentif berbasis kinerja yang mengintegrasikan rekognisi pengalaman praktis sebagai komponen Angka Kredit dosen.</p>
-          </div>
-
-          <div class="mock-section-title">Latar Belakang Masalah</div>
-          <div class="mock-body-text">Pendidikan vokasi di Indonesia terus menghadapi tantangan kualitas tenaga pengajar. Data Kemdiktisaintek 2024 menunjukkan bahwa dari 98.000 dosen vokasi yang terdaftar, kurang dari seperempatnya memiliki pengalaman kerja industri minimal 2 tahun. Hal ini berdampak langsung pada relevansi kurikulum dan daya serap lulusan di pasar kerja.</div>
-          <div class="mock-body-text">Peraturan terkini melalui Kepmendiktisaintek No. 39/M/KEP/2026 membuka peluang bagi dosen untuk mengklaim berbagai capaian kinerja di luar publikasi ilmiah konvensional, termasuk policy brief dan karya pengabdian masyarakat berdampak.</div>
-
-          <div class="mock-section-title">Rekomendasi Kebijakan</div>
-          <ul class="mock-rec-list">
-            <li>Kemendiktisaintek perlu menetapkan skema insentif khusus bagi dosen vokasi yang memiliki sertifikasi kompetensi industri aktif dengan mengkonversi jam industri sebagai beban kerja formal.</li>
-            <li>Perguruan tinggi vokasi didorong bermitra dengan asosiasi industri untuk membuka jalur "dosen praktisi" dengan jalur kenaikan jabatan yang dipercepat bagi profesional berpengalaman.</li>
-            <li>Sistem BKD SISTER perlu diperluas untuk mengakomodasi pelaporan kegiatan magang dosen di industri minimal 30 hari per tahun sebagai komponen BKD pengabdian masyarakat.</li>
-          </ul>
+        <p class="lembaga-desc">Lembaga multilateral, organisasi internasional, atau think tank internasional yang memiliki repositori publikasi resmi dan diakui secara global.</p>
+        <div class="lembaga-links">
+          <a class="lembaga-link" href="https://www.worldbank.org/en/research/brief/world-bank-policy-research-working-papers" target="_blank">→ World Bank — Policy Research Working Papers</a>
+          <a class="lembaga-link" href="https://www.adb.org/publications/series/acdp-indonesia-papers-and-policy-briefs" target="_blank">→ ADB — Indonesia Papers & Policy Briefs</a>
+          <a class="lembaga-link" href="https://www.undp.org/indonesia/publications" target="_blank">→ UNDP Indonesia — Publikasi</a>
+          <a class="lembaga-link" href="https://www.oecd.org/publications/" target="_blank">→ OECD — Publications</a>
         </div>
-
-        <div class="mock-sidebar">
-          <div class="sidebar-box">
-            <div class="sidebar-box-title">Data Kunci</div>
-            <div class="sidebar-stat">
-              <span class="sidebar-stat-num">23%</span>
-              <span class="sidebar-stat-label">Dosen vokasi dengan pengalaman industri relevan</span>
-            </div>
-          </div>
-
-          <div class="sidebar-highlight">
-            <p><strong>Temuan Utama:</strong> Sistem insentif berbasis kinerja terbukti meningkatkan produktivitas dosen hingga <strong>40%</strong> di negara ASEAN yang telah mengadopsinya (Thailand, Vietnam).</p>
-          </div>
-
-          <div class="sidebar-box">
-            <div class="sidebar-box-title">Ditujukan Kepada</div>
-            <ul style="list-style:none;font-size:0.8rem;color:var(--text-mid);line-height:2;">
-              <li>▸ Kemdiktisaintek</li>
-              <li>▸ Pimpinan PTN/PTS</li>
-              <li>▸ Direktorat Sumber Daya</li>
-              <li>▸ LLDIKTI</li>
-            </ul>
-          </div>
-
-          <div class="sidebar-box">
-            <div class="sidebar-box-title">Penulis</div>
-            <p style="font-size:0.8rem;color:var(--text-mid);line-height:1.6;">Dr. Ayu Rahmawati (Penulis Pertama)<br>Prof. Budi Santoso<br>Rina Fitriani, M.Sc.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mock-footer">
-        <div class="mock-footer-text">© 2025 SMERU Research Institute · Jl. Cikini Raya No.10A, Jakarta Pusat</div>
-        <div class="mock-footer-pub">DOI: 10.1234/smeru.pb.2025.12</div>
-      </div>
-    </div>
-
-    <div style="margin-top:1.5rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; display:flex; gap:1rem; align-items:flex-start;">
-      <div style="font-size:1.5rem; flex-shrink:0;">📌</div>
-      <div>
-        <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); line-height:1.7;">Tampilan di atas adalah <strong style="color:var(--gold)">simulasi/ilustrasi</strong> — bukan policy brief asli dari SMERU. Untuk melihat contoh nyata, kunjungi <a href="https://smeru.or.id/id/publication" target="_blank" style="color:var(--gold-light);">smeru.or.id</a>, <a href="https://mkp.fisipol.ugm.ac.id/category/publikasi/policy-brief-id/" target="_blank" style="color:var(--gold-light);">UGM DMKP</a>, atau <a href="https://undp.org/indonesia/publications" target="_blank" style="color:var(--gold-light);">UNDP Indonesia</a>.</p>
+        <div class="warn-box">⚠️ Contoh ilustratif. Kepmen hanya menyebut "lembaga internasional bereputasi" secara generik. Keempat lembaga ini memiliki repositori resmi terverifikasi.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CHECKLIST -->
-<section id="checklist" class="checklist-section">
+<section id="checklist" class="check-section">
   <div class="section">
     <div class="section-label reveal">Interaktif</div>
-    <h2 class="section-title reveal">Cek Kesiapan Anda</h2>
-    <div class="divider reveal"></div>
-    <p class="section-desc reveal">Klik setiap item untuk menandai yang sudah Anda penuhi. Gunakan ini sebelum mengklaim policy brief sebagai IKD di SISTER. <strong>Catatan:</strong> checklist ini bersifat panduan — keputusan akhir tetap di tangan asesor.</p>
+    <h2 class="section-title reveal">Checklist Kesiapan Pengajuan IKD</h2>
+    <div class="rule reveal"></div>
+    <p class="section-desc reveal">Klik setiap item untuk menandai. Gunakan sebelum mengklaim karya sebagai IKD di SISTER. Penilaian akhir tetap di tangan asesor — ini panduan, bukan jaminan.</p>
 
-    <div class="checklist-grid">
-      <div class="checklist-card reveal">
-        <h3>📋 Syarat Dokumen</h3>
-        <div id="checklist-a">
-          <div class="check-item" onclick="toggleCheck(this, 'a')">
-            <div class="check-box"></div>
-            <div class="check-text">Policy brief sudah diterbitkan (bukan draft/rencana)</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'a')">
-            <div class="check-box"></div>
-            <div class="check-text">Ada nomor publikasi / DOI / ISSN yang jelas</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'a')">
-            <div class="check-box"></div>
-            <div class="check-text">Ada tautan URL resmi yang bisa diakses publik</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'a')">
-            <div class="check-box"></div>
-            <div class="check-text">Nama saya tercantum sebagai penulis dengan afiliasi institusi</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'a')">
-            <div class="check-box"></div>
-            <div class="check-text">Topik sesuai bidang kepakaran/rumpun ilmu saya</div>
-          </div>
+    <div class="check-grid">
+      <div class="check-card reveal">
+        <div class="check-card-title">📄 Kelayakan Karya</div>
+        <div id="ck-a">
+          <div class="check-item" onclick="ck(this,'a')"><div class="check-box"></div><div class="check-text">Karya masuk salah satu dari 5 jenis: working paper, white paper, policy paper, policy brief, atau karya KI yang direkognisi</div></div>
+          <div class="check-item" onclick="ck(this,'a')"><div class="check-box"></div><div class="check-text">Karya sudah resmi diterbitkan/terdaftar — bukan draft atau rencana</div></div>
+          <div class="check-item" onclick="ck(this,'a')"><div class="check-box"></div><div class="check-text">Ada nomor publikasi / DOI / nomor seri resmi / nomor sertifikat yang jelas</div></div>
+          <div class="check-item" onclick="ck(this,'a')"><div class="check-box"></div><div class="check-text">Ada URL atau repositori resmi yang dapat diakses publik</div></div>
+          <div class="check-item" onclick="ck(this,'a')"><div class="check-box"></div><div class="check-text">Topik sesuai bidang kepakaran / rumpun ilmu saya</div></div>
         </div>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" id="bar-a"></div>
-        </div>
-        <div class="progress-label" id="label-a">0 / 5 terpenuhi</div>
+        <div class="prog-wrap"><div class="prog-bar" id="pb-a"></div></div>
+        <div class="prog-label" id="pl-a">0 / 5 terpenuhi</div>
       </div>
 
-      <div class="checklist-card reveal">
-        <h3>🏛️ Syarat Lembaga Penerbit</h3>
-        <div id="checklist-b">
-          <div class="check-item" onclick="toggleCheck(this, 'b')">
-            <div class="check-box"></div>
-            <div class="check-text">Penerbit termasuk asosiasi profesi bereputasi, ATAU</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'b')">
-            <div class="check-box"></div>
-            <div class="check-text">Penerbit adalah lembaga riset yang diakui (SMERU, BRIN, dll), ATAU</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'b')">
-            <div class="check-box"></div>
-            <div class="check-text">Penerbit adalah perguruan tinggi QS200, ATAU</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'b')">
-            <div class="check-box"></div>
-            <div class="check-text">Penerbit adalah lembaga internasional bereputasi (World Bank, UNDP, ADB)</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'b')">
-            <div class="check-box"></div>
-            <div class="check-text">Bukan diterbitkan sendiri atau hanya di website kampus sendiri</div>
-          </div>
+      <div class="check-card reveal">
+        <div class="check-card-title">🏛️ Kelayakan Lembaga Penerbit</div>
+        <div id="ck-b">
+          <div class="check-item" onclick="ck(this,'b')"><div class="check-box"></div><div class="check-text">Penerbit adalah asosiasi profesi bereputasi yang aktif menerbitkan karya ilmiah, ATAU</div></div>
+          <div class="check-item" onclick="ck(this,'b')"><div class="check-box"></div><div class="check-text">Penerbit adalah lembaga riset yang diakui (BRIN, SMERU, LPEM, dll), ATAU</div></div>
+          <div class="check-item" onclick="ck(this,'b')"><div class="check-box"></div><div class="check-text">Penerbit adalah perguruan tinggi yang masuk QS200 dunia (verifikasi peringkat terkini), ATAU</div></div>
+          <div class="check-item" onclick="ck(this,'b')"><div class="check-box"></div><div class="check-text">Penerbit adalah lembaga internasional bereputasi (World Bank, ADB, UNDP, OECD, dll)</div></div>
+          <div class="check-item" onclick="ck(this,'b')"><div class="check-box"></div><div class="check-text">Bukan diterbitkan sendiri, di blog pribadi, atau hanya di website kampus sendiri</div></div>
         </div>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" id="bar-b"></div>
-        </div>
-        <div class="progress-label" id="label-b">0 / 5 terpenuhi</div>
+        <div class="prog-wrap"><div class="prog-bar" id="pb-b"></div></div>
+        <div class="prog-label" id="pl-b">0 / 5 terpenuhi</div>
       </div>
 
-      <div class="checklist-card reveal">
-        <h3>👤 Syarat Peran Penulis</h3>
-        <div id="checklist-c">
-          <div class="check-item" onclick="toggleCheck(this, 'c')">
-            <div class="check-box"></div>
-            <div class="check-text">Asisten Ahli: cukup sebagai penulis anggota ✓</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'c')">
-            <div class="check-box"></div>
-            <div class="check-text">Lektor: harus sebagai penulis pertama ✓</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'c')">
-            <div class="check-box"></div>
-            <div class="check-text">Lektor Kepala: penulis anggota, tapi harus internasional ✓</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'c')">
-            <div class="check-box"></div>
-            <div class="check-text">Profesor: penulis pertama + internasional ✓</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'c')">
-            <div class="check-box"></div>
-            <div class="check-text">Peran saya sesuai dengan standar jenjang jabatan yang dituju</div>
-          </div>
+      <div class="check-card reveal">
+        <div class="check-card-title">👤 Kesesuaian Peran & Jenjang</div>
+        <div id="ck-c">
+          <div class="check-item" onclick="ck(this,'c')"><div class="check-box"></div><div class="check-text">Asisten Ahli → cukup sebagai penulis anggota + rekognisi nasional ✓</div></div>
+          <div class="check-item" onclick="ck(this,'c')"><div class="check-box"></div><div class="check-text">Lektor → harus sebagai penulis pertama + rekognisi nasional bereputasi ✓</div></div>
+          <div class="check-item" onclick="ck(this,'c')"><div class="check-box"></div><div class="check-text">Lektor Kepala → cukup anggota, tapi rekognisi harus internasional bereputasi ✓</div></div>
+          <div class="check-item" onclick="ck(this,'c')"><div class="check-box"></div><div class="check-text">Profesor → harus penulis pertama + rekognisi internasional bereputasi ✓</div></div>
+          <div class="check-item" onclick="ck(this,'c')"><div class="check-box"></div><div class="check-text">Peran saya dalam karya sudah sesuai dengan standar jenjang jabatan yang dituju</div></div>
         </div>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" id="bar-c"></div>
-        </div>
-        <div class="progress-label" id="label-c">0 / 5 terpenuhi</div>
+        <div class="prog-wrap"><div class="prog-bar" id="pb-c"></div></div>
+        <div class="prog-label" id="pl-c">0 / 5 terpenuhi</div>
       </div>
 
-      <div class="checklist-card reveal">
-        <h3>⏱️ Syarat Waktu & Sistem</h3>
-        <div id="checklist-d">
-          <div class="check-item" onclick="toggleCheck(this, 'd')">
-            <div class="check-box"></div>
-            <div class="check-text">Karya terbit setelah TMT jabatan akademik terakhir saya</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'd')">
-            <div class="check-box"></div>
-            <div class="check-text">Sudah menyiapkan dokumen bukti untuk upload di SISTER</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'd')">
-            <div class="check-box"></div>
-            <div class="check-text">Sudah konsultasi dengan operator PAK di institusi</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'd')">
-            <div class="check-box"></div>
-            <div class="check-text">Memahami bahwa penilaian akhir dilakukan asesor — bukan sistem otomatis</div>
-          </div>
-          <div class="check-item" onclick="toggleCheck(this, 'd')">
-            <div class="check-box"></div>
-            <div class="check-text">Menyimpan salinan cadangan semua dokumen pendukung</div>
-          </div>
+      <div class="check-card reveal">
+        <div class="check-card-title">📅 Syarat Waktu & Sistem SISTER</div>
+        <div id="ck-d">
+          <div class="check-item" onclick="ck(this,'d')"><div class="check-box"></div><div class="check-text">Karya terbit / terdaftar setelah TMT jabatan akademik terakhir saya</div></div>
+          <div class="check-item" onclick="ck(this,'d')"><div class="check-box"></div><div class="check-text">BKD sudah terpenuhi 4 semester berturut-turut di PT yang sama di SISTER</div></div>
+          <div class="check-item" onclick="ck(this,'d')"><div class="check-box"></div><div class="check-text">Sudah menyiapkan dokumen bukti untuk upload di SISTER (PDF max 2MB per file)</div></div>
+          <div class="check-item" onclick="ck(this,'d')"><div class="check-box"></div><div class="check-text">Sudah konsultasi dengan operator PAK mengenai kelayakan karya dan lembaga penerbit</div></div>
+          <div class="check-item" onclick="ck(this,'d')"><div class="check-box"></div><div class="check-text">Memahami bahwa penilaian akhir dilakukan asesor manusia — bukan otomatis oleh sistem</div></div>
         </div>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" id="bar-d"></div>
-        </div>
-        <div class="progress-label" id="label-d">0 / 5 terpenuhi</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TIPS -->
-<section id="tips" style="background: var(--navy); padding: 5rem 0;">
-  <div class="section">
-    <div class="section-label reveal" style="color:var(--gold-light)">Strategi Praktis</div>
-    <h2 class="section-title reveal" style="color:white">Tips untuk Dosen</h2>
-    <div class="divider reveal"></div>
-
-    <div class="tips-row">
-      <div class="tip-card reveal" style="background:rgba(255,255,255,0.05); border-color:rgba(201,168,76,0.2);">
-        <div class="tip-icon">🤝</div>
-        <h4 style="color:white;">Kolaborasi dengan Lembaga Riset</h4>
-        <p style="color:rgba(255,255,255,0.6);">Hubungi pusat kajian di kampus atau lembaga riset nasional. Tawarkan topik riset yang relevan dengan isu kebijakan terkini. Mereka butuh peneliti, Anda butuh penerbit bereputasi.</p>
-      </div>
-      <div class="tip-card reveal" style="background:rgba(255,255,255,0.05); border-color:rgba(201,168,76,0.2);">
-        <div class="tip-icon">🌐</div>
-        <h4 style="color:white;">Manfaatkan Program Internasional</h4>
-        <p style="color:rgba(255,255,255,0.6);">Program seperti World Bank Research & Policy Brief, ADB Working Paper Series, atau UNDP Discussion Paper terbuka untuk akademisi. Ajukan proposal riset yang relevan dengan program mereka.</p>
-      </div>
-      <div class="tip-card reveal" style="background:rgba(255,255,255,0.05); border-color:rgba(201,168,76,0.2);">
-        <div class="tip-icon">📝</div>
-        <h4 style="color:white;">Ubah Hasil Riset yang Ada</h4>
-        <p style="color:rgba(255,255,255,0.6);">Riset yang sudah Anda lakukan bisa dikemas ulang menjadi policy brief. Ambil temuan utama, sederhanakan, tambahkan rekomendasi konkret, lalu ajukan ke lembaga yang tepat.</p>
-      </div>
-      <div class="tip-card reveal" style="background:rgba(255,255,255,0.05); border-color:rgba(201,168,76,0.2);">
-        <div class="tip-icon">⚠️</div>
-        <h4 style="color:white;">Jangan Terbitkan Sendiri</h4>
-        <p style="color:rgba(255,255,255,0.6);">Policy brief di website pribadi, blog, atau repository kampus sendiri tidak akan diakui. Harus ada lembaga ketiga yang menerbitkan dan memberikan rekognisi resmi.</p>
-      </div>
-      <div class="tip-card reveal" style="background:rgba(255,255,255,0.05); border-color:rgba(201,168,76,0.2);">
-        <div class="tip-icon">🔍</div>
-        <h4 style="color:white;">Konsultasikan ke Operator PAK</h4>
-        <p style="color:rgba(255,255,255,0.6);">Kepmen tidak memberikan daftar lembaga spesifik. Sebelum mengklaim, konsultasikan ke operator PAK atau LLDIKTI apakah lembaga penerbit yang Anda pilih akan diterima asesor.</p>
-      </div>
-      <div class="tip-card reveal" style="background:rgba(255,255,255,0.05); border-color:rgba(201,168,76,0.2);">
-        <div class="tip-icon">📅</div>
-        <h4 style="color:white;">Perhatikan Tanggal Terbit</h4>
-        <p style="color:rgba(255,255,255,0.6);">Klaim IKD hanya berlaku untuk karya yang terbit setelah TMT jabatan akademik terakhir. Pastikan tanggal publikasi resmi sudah tercantum jelas di dokumen.</p>
+        <div class="prog-wrap"><div class="prog-bar" id="pb-d"></div></div>
+        <div class="prog-label" id="pl-d">0 / 5 terpenuhi</div>
       </div>
     </div>
   </div>
@@ -1702,59 +1432,42 @@
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <p>Disusun berdasarkan <strong>Kepmendiktisaintek No. 39/M/KEP/2026</strong></p>
-  <p>dan <strong>PPT Sosialisasi Pembukaan Kenaikan JAD LK & GB Gelombang I Tahun 2026</strong></p>
-  <p style="margin-top:0.75rem; font-size:0.78rem; color:rgba(255,255,255,0.35);">Panduan ini bersifat informatif dan edukatif. Contoh nama lembaga penerbit bersifat ilustratif — tidak tercantum dalam Kepmen. Untuk keputusan resmi, selalu acu pada dokumen Kepmen asli dan PPT sosialisasi resmi Kemdiktisaintek, serta konsultasikan dengan operator PAK institusi Anda.</p>
+  <p>Disusun berdasarkan <strong>Kepmendiktisaintek No. 39/M/KEP/2026</strong> dan <strong>PPT Sosialisasi Pembukaan Kenaikan JAD LK & GB Gel. I Tahun 2026</strong></p>
+  <p style="margin-top:0.5rem;">Nama-nama lembaga penerbit bersifat ilustratif — tidak tercantum dalam Kepmen. Kepmen hanya menetapkan 4 kategori umum lembaga penerbit.</p>
+  <p style="margin-top:0.5rem;">Panduan ini bersifat informatif dan edukatif. Untuk keputusan resmi, selalu acu pada dokumen asli dan konsultasikan dengan operator PAK institusi Anda.</p>
 </footer>
 
 <script>
-  // Tab switching
-  function switchTab(id, btn) {
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + id).classList.add('active');
-    btn.classList.add('active');
-  }
+// Checklist
+const counts = {a:0,b:0,c:0,d:0};
+function ck(el, g) {
+  el.classList.toggle('done');
+  counts[g] = document.querySelectorAll('#ck-'+g+' .check-item.done').length;
+  const pct = (counts[g] / 5) * 100;
+  document.getElementById('pb-'+g).style.width = pct + '%';
+  document.getElementById('pl-'+g).textContent = counts[g] + ' / 5 terpenuhi';
+}
 
-  // Checklist
-  const counts = { a: 0, b: 0, c: 0, d: 0 };
-  const totals = { a: 5, b: 5, c: 5, d: 5 };
-
-  function toggleCheck(el, group) {
-    const wasChecked = el.classList.contains('checked');
-    el.classList.toggle('checked');
-    counts[group] = document.querySelectorAll('#checklist-' + group + ' .check-item.checked').length;
-    const pct = (counts[group] / totals[group]) * 100;
-    document.getElementById('bar-' + group).style.width = pct + '%';
-    document.getElementById('label-' + group).textContent = counts[group] + ' / ' + totals[group] + ' terpenuhi';
-  }
-
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  revealEls.forEach(el => observer.observe(el));
-
-  // Active nav
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    navLinks.forEach(l => {
-      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
-    });
+// Reveal on scroll
+const els = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('vis'), i * 50);
+      obs.unobserve(e.target);
+    }
   });
+}, { threshold: 0.08 });
+els.forEach(e => obs.observe(e));
+
+// Active nav
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+cur));
+});
 </script>
 </body>
 </html>
